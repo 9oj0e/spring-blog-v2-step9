@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import shop.mtcoding.blog._core.errors.exception.Exception403;
 import shop.mtcoding.blog._core.errors.exception.Exception404;
-import shop.mtcoding.blog.reply.Reply;
 import shop.mtcoding.blog.reply.ReplyJPARepository;
 import shop.mtcoding.blog.user.User;
 
@@ -44,7 +43,7 @@ public class BoardService {
     } // 더티체킹
 
     @Transactional
-    public BoardResponse.DTO 글쓰기(BoardRequest.SaveDTO reqDTO, User sessionUser){
+    public BoardResponse.DTO 글쓰기(BoardRequest.CreateDTO reqDTO, User sessionUser){
         Board board =boardJPARepository.save(reqDTO.toEntity(sessionUser));
         return new BoardResponse.DTO(board);
     }

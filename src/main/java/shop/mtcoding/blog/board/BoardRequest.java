@@ -17,7 +17,7 @@ public class BoardRequest {
     }
 
     @Data
-    public static class SaveDTO {
+    public static class CreateDTO {
         @Size(min = 1, max = 10, message = "제목은 10자를 초과할 수 없습니다")
         @NotEmpty(message = "제목은 공백일 수 없습니다") // null도 안되고, 공백만 있는 것도 안된다
         private String title;
